@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proiecte | Electronică și Automatică</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stiluri specifice paginii de Proiecte */
+        .projects-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('imagini/proiecte-bg.jpg') center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .projects-container {
+            padding: 3rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(71, 118, 230, 0.3);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fundal animat -->
+    <div id="particles-js"></div>
+
+    <!-- Header consistent -->
+    <header>
+        <div class="container">
+            <h1 class="logo">ELECTRO<span>TECH</span></h1>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                    <li><a href="despre.html"><i class="fas fa-info-circle"></i> Despre</a></li>
+                    <li><a href="proiecte.html" class="active"><i class="fas fa-project-diagram"></i> Proiecte</a></li>
+                    <li><a href="resurse.html"><i class="fas fa-book"></i> Resurse</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conținut specific -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1><span>Proiectele</span> Noastre</h1>
+            <p>Explorează realizările studenților și ale echipei noastre</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="projects-container">
+                <!-- Butoane filtrare -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Toate</button>
+                    <button class="filter-btn" data-filter="robotica">Robotică</button>
+                    <button class="filter-btn" data-filter="iot">IoT</button>
+                    <button class="filter-btn" data-filter="circuite">Circuite</button>
+                </div>
+
+                <!-- Grid proiecte -->
+                <div class="projects-grid">
+                    <!-- Proiect 1 -->
+                    <div class="project-card" data-category="robotica">
+                        <div class="project-img">
+                            <img src="imagini/proiect1.jpg" alt="Robot line follower">
+                        </div>
+                        <div class="project-info">
+                            <h3>Robot Line Follower</h3>
+                            <p>Proiect realizat cu Arduino și senzori IR</p>
+                            <a href="#" class="btn">Detalii</a>
+                        </div>
+                    </div>
+
+                    <!-- Proiect 2 -->
+                    <div class="project-card" data-category="iot">
+                        <div class="project-img">
+                            <img src="imagini/proiect2.jpg" alt="Sistem smart home">
+                        </div>
+                        <div class="project-info">
+                            <h3>Sistem Smart Home</h3>
+                            <p>Control iluminat și temperatură prin smartphone</p>
+                            <a href="#" class="btn">Detalii</a>
+                        </div>
+                    </div>
+
+                    <!-- Proiect 3 -->
+                    <div class="project-card" data-category="circuite">
+                        <div class="project-img">
+                            <img src="imagini/proiect3.jpg" alt="Amplificator audio">
+                        </div>
+                        <div class="project-info">
+                            <h3>Amplificator Audio</h3>
+                            <p>Amplificator de 100W cu tranzistoare MOSFET</p>
+                            <a href="#" class="btn">Detalii</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Electronică și Automatică</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Filtrare proiecte
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Elimină clasa 'active' de la toate butoanele
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Adaugă clasa 'active' doar la butonul apăsat
+                btn.classList.add('active');
+                
+                // Filtrează proiectele
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
